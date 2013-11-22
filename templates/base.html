@@ -1,0 +1,21 @@
+<!--
+TODO
+- auto suggest page names
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='whenthewiki.js')}}"></script>
+    </head>
+    <body>
+        <div id="maindiv">
+            <form id="wiki_name_form">
+                <input id="wiki_name_input" type=text name=page_name placeholder="Wikipedia Page Name">
+                <input type="submit" value="When the Wiki??">
+            </form>
+            <div id="result">
+            </div>
+        </div>
+    </body>
+</html>

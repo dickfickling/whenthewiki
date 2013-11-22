@@ -1,0 +1,24 @@
+#mainform
+{
+  height:100%;
+}
+#lipotext,#liposuggestion
+{
+    height:100%;
+    width:100%;
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+#lipotext
+{
+    height:80%;
+}
+#liposuggestion
+{
+    height:20%;
+}
