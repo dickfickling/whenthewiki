@@ -4,15 +4,18 @@ TODO
 -->
 <html>
     <head>
+        <title>When The Wiki</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='whenthewiki.js')}}"></script>
+        {% if created_date %}
+        <script>$(function() {$('#result').html(result_string({{created_date}}, "{{article}}"));});</script>
+        {% endif %}
     </head>
     <body>
         <div id="maindiv">
             <form id="wiki_name_form">
-                <input id="wiki_name_input" type=text name=page_name placeholder="Wikipedia Page Name">
-                <input type="submit" value="When the Wiki??">
+                <input {% if article %} value="{{article}}" {% endif %} id="wiki_name_input" type=text name=page_name placeholder="type something...">
             </form>
             <div id="result">
             </div>
