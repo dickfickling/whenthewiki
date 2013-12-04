@@ -34,6 +34,7 @@ def home():
     return render_template('base.html')
 
 def c_date(article_name):
+    print article_name
     article = mongo.db.articles.find_one({'article' : article_name})
 
     if article:
@@ -41,18 +42,26 @@ def c_date(article_name):
     else:
         created_date = get_creation_date(article_name)
         if not created_date:
-            return action_success(None, success=False)
+            return None
         mongo.db.articles.insert({'article' : article_name, 'created_date' : created_date})
     return created_date
 
 @app.route("/page/<string:article_name>", methods = [ 'GET' ])
 def get_page(article_name):
-    return render_template('base.html',
+    cd = c_date(article_name)
+    if cd:
+        return render_template('base.html',
             article=article_name,
-            created_date=timestamp(c_date(article_name)))
+            created_date=timestamp(cd))
+    else:
+        return render_template('base.html',
+                article=article_name,
+                created_date=None)
 
-@app.route("/<string:article_name>", methods = [ 'GET' ])
 @app.route("/lookup/<string:article_name>", methods = [ 'GET' ])
 def get_created_date(article_name):
-    print article_name
-    return action_success(timestamp(c_date(article_name)))
+    cd = c_date(article_name)
+    if cd:
+        return action_success(timestamp(cd))
+    else:
+        return action_success(None, success=False)

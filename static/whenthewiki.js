@@ -29,7 +29,8 @@
         $('#wiki_name_input').focus();
         $('#wiki_name_form').submit(function(event) {
             page_name = $("#wiki_name_input").val();
-            var url = "/lookup/" + page_name;
+            var url = "/lookup/" + encodeURIComponent(page_name);
+            $('#result').html("Searching...");
             $.ajax({
                 type: "GET",
                 url: url,

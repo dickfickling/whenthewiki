@@ -16,7 +16,7 @@ body {
 }
 #maindiv {
     margin: 0 auto;
-    width: 700px;
+    width: 600px;
     height: 100px;
     position: absolute;
     top:10%;
@@ -25,7 +25,7 @@ body {
     right: 0;
 }
 #wiki_name_form {
-    width:90%; 
+    width:100%; 
     margin:0;
 }
 #wiki_name_input {
@@ -38,8 +38,8 @@ body {
     font-weight: 300;
 }
 #result {
-    width: 90%;
-    color: #D0D0D0;
+    width: 100%;
+    color: #E0E0E0;
     padding-top:100px;
     font-size:50px;
 }
